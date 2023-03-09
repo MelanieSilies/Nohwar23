@@ -1,0 +1,337 @@
+:root {
+    --main-color:rgb(26, 26, 26);
+    --blue-color:#F4972C;
+    --text-color: white;
+    --red-color:#E52F05;
+    --light-color:rgb(232, 232, 232);
+    --secondary-font: 'Limelight';
+}
+
+@font-face {
+    font-family: 'Limelight';
+    src:local('Limelight') url(/Users/melaniesilies/Library/Fonts/Limelight-Regular);
+}
+
+body
+{
+  margin: 0;
+  padding: 0;
+  background: var(--main-color);
+  color: var(--text-color);
+  font-family: "Avenir Next", "Avenir", sans-serif;
+}
+
+/* HAMBURGERMENU */
+
+
+#menuToggle
+{
+  display: block;
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a
+{
+  text-decoration: none;
+  color: var(--blue-color);
+  
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover
+{
+  color: var(--main-color);
+}
+
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;  
+  cursor: pointer; 
+  opacity: 0;
+  z-index: 2; 
+  -webkit-touch-callout: none;
+}
+
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: var(--light-color);
+  border-radius: 3px; 
+  z-index: 1;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: var(--red-color);
+}
+
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+#menu
+{
+  position: absolute;
+  width: 300px;
+  height: 100vh;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  background: var(--light-color);
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+ #menuToggle input:checked ~ ul
+{
+  transform: none;
+} 
+
+
+/* HOME */
+
+.home {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    min-height: 80vh;
+    position: relative;
+    top: 0;
+    text-align: center;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 3rem;
+    color: var(--blue-color);
+    text-shadow: 1px 1px 3px #092f29;
+    font-family: 'Limelight';
+}
+
+.lineup {
+    
+    max-width: 100vw;
+    min-height: 80vh;
+    padding: 50px;
+    background: var(--blue-color);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+ h2 {
+    color: var(--text-color);
+    text-shadow: 1px 1px 3px #092f29;
+    font-family: var(--secondary-font);
+    font-size: 32px;
+}
+
+.lineup a img{
+    height: 300px;
+    width: 300px;
+}
+
+.lineup img {
+    height: 350px;
+}
+
+.bandlogos{
+  width: 90%;
+}
+
+.gallery {
+    padding-top: 5rem;
+    max-width: 70vw;
+    height: fit-content;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.bildq:hover,
+.bildh:hover {
+    transform: scale(1.3);
+    transition: 0.5s ease-in;
+}
+
+.bildq {
+    width: 300px;
+    height: 200px;
+    background-size: contain;
+}
+
+.bildh {
+    height:400px;
+    width: 300px;
+    background-size: cover;
+}
+
+.bild1 {
+    background-image: url(./images/2022/1.jpg);
+    grid-area: bild1;
+}
+
+.bild2 {
+    background-image: url(./images/2022/2.jpg);
+    grid-area: bild2;
+   }
+
+.bild3 {
+    background-image: url(./images/2022/3.jpg);
+    grid-area: bild3;
+   }
+
+.bild4 {
+    background-image: url(./images/2022/4.jpg);
+    grid-area: bild4;
+   }
+
+.bild5 {
+    background-image: url(./images/2022/5.jpg);
+    grid-area: bild5;
+   }
+
+.bild6 {
+    background-image: url(./images/2022/6.jpg);
+    grid-area: bild6;
+   }
+
+.bild7 {
+    background-image: url(./images/2022/7.jpg);
+    grid-area: bild7;
+   }
+
+.bild8 {
+    background-image: url(./images/2022/8.jpg);
+    grid-area: bild8;
+   }
+.bild9 {
+    background-image: url(./images/2022/9.jpg);
+    grid-area: bild9;
+   }
+
+.bild10 {
+    background-image: url(./images/2022/10.jpg);
+    grid-area: bild10;
+   } 
+
+.bild11 {
+    background-image: url(./images/2022/11.jpg);
+    grid-area: bild11;
+   } 
+
+.bild12 {
+    background-image: url(./images/2022/12.jpg);
+    grid-area: bild12;
+   }    
+
+
+   .infos{
+    padding: 100px 0;
+    width: 70%;
+    text-align: justify;
+    margin: 0 auto;
+   }
+
+
+	
+
+
+
+
+
+@media (min-width:768px){
+    .home {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .home-text {
+        padding: 2rem;
+    }
+    .logo {
+        max-height:100%;
+        max-width: fit-content;
+    }
+
+    .lineup {
+        justify-content: center;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .gallery {
+      padding: 10px;
+      padding-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      grid-template-areas: 
+      "bild1 bild2 bild3"
+      "bild4 bild2 bild5"
+      "bild6 bild7 bild8"
+      "bild6 bild9 bild12"
+      "bild10 bild11 bild12";
+      gap: 5px;
+      grid-column-gap: 5px;
+    }
+}
